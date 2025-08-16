@@ -52,7 +52,7 @@ function ZodiacSign({ date, setHeading }) {
 
     while (i < 12) {
       if (moduloSunSignDegree >= start && moduloSunSignDegree < end)
-        setHeading(sunSignZodiac[i]['sign']);
+        return setHeading(sunSignZodiac[i]['sign']);
 
       start += 30;
       end += 30;
