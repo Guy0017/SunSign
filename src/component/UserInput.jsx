@@ -6,7 +6,9 @@ function UserInput({ setDate }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    setDate(userDate.current.valueAsDate);
+    const emptyDate = userDate.current.valueAsDate === null;
+
+    !emptyDate && setDate(userDate.current.valueAsDate);
   }
   return (
     <section>
