@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-function Header() {
+function Header({ heading }) {
   return (
     <>
       <header>
-        <h1>Sun Sign</h1>
+        <h1>{heading}</h1>
       </header>
     </>
   );

@@ -4,23 +4,40 @@
   box-sizing: border-box;
 }
 
+:root {
+  --backgroundTheme: black;
+  --textTheme: white;
+}
+
 body {
-  width: 80%;
+  width: 100vw;
   height: 100vh;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1em;
+  background-color: var(--backgroundTheme);
+  color: var(--textTheme);
+}
+
+section {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+h1,
+h2 {
+  text-align: center;
 }
 
 h1 {
-  text-align: center;
   font-size: 3.5em;
   font-weight: bolder;
 }
 
-header {
-  margin-left: auto;
-  margin-right: auto;
+h2 {
+  font-size: 2em;
+  font-weight: bold;
 }
 
 nav {
@@ -40,8 +57,25 @@ button {
   text-align: center;
   height: 100%;
   width: 100%;
+  border: none;
+}
+
+input,
+button {
+  text-transform: uppercase;
 }
 
 input {
   padding-left: 2.5em;
+}
+
+.aeries {
+  text-align: center;
+  
+  color: white;
+  font-size: 10em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
 }
