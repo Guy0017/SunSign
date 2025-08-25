@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 function ZodiacSign({ date, setHeading }) {
   const [renderDate, setRenderDate] = useState('');
   const [zodiac, setZodiac] = useState('');
+  const [age, setAge] = useState('');
 
   const navigate = useNavigate();
 
@@ -15,6 +16,7 @@ function ZodiacSign({ date, setHeading }) {
 
   useEffect(() => {
     zodiac && setHeading(zodiac['sign']);
+    age && console.log(age);
   }, [zodiac]);
 
   function findZodiacDegree() {
@@ -30,7 +32,8 @@ function ZodiacSign({ date, setHeading }) {
     const zodiacDegreePerSolarDay = cycle.sunSign / cycle.solar;
 
     const days = (birthdate - vernalEquinox) / 86400000;
-    const years = days / cycle.calendar;
+    const years = Math.floor(Math.abs(days / cycle.calendar));
+    setAge(years);
 
     let moduloSunSignDegree =
       (days * solarOrbitPerDay * zodiacDegreePerSolarDay) % cycle.sunSign;
@@ -179,7 +182,12 @@ function ZodiacSign({ date, setHeading }) {
   return (
     <>
       <section>
-        <h2>{renderDate}</h2>
+        <h2>
+          {renderDate}
+          <p>
+            {age} year old {zodiac.sign}
+          </p>
+        </h2>
         <h3>Myth: {zodiac.myth}</h3>
         <h3>Element: {zodiac.element}</h3>
         <h3>Quality: {zodiac.quality}</h3>
